@@ -1,0 +1,14 @@
+// vite.config.js
+import { defineConfig } from "file:///D:/ReactProject/ReactProject/node_modules/vite/dist/node/index.js";
+import react from "file:///D:/ReactProject/ReactProject/node_modules/@vitejs/plugin-react-swc/index.mjs";
+import tailwindcss from "file:///D:/ReactProject/ReactProject/node_modules/@tailwindcss/vite/dist/index.mjs";
+var vite_config_default = defineConfig(
+  {
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    plugins: [react(), tailwindcss()]
+  }
+);
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJEOlxcXFxSZWFjdFByb2plY3RcXFxcUmVhY3RQcm9qZWN0XCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCJEOlxcXFxSZWFjdFByb2plY3RcXFxcUmVhY3RQcm9qZWN0XFxcXHZpdGUuY29uZmlnLmpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9EOi9SZWFjdFByb2plY3QvUmVhY3RQcm9qZWN0L3ZpdGUuY29uZmlnLmpzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcbmltcG9ydCByZWFjdCBmcm9tICdAdml0ZWpzL3BsdWdpbi1yZWFjdC1zd2MnXG5pbXBvcnQgdGFpbHdpbmRjc3MgZnJvbSAnQHRhaWx3aW5kY3NzL3ZpdGUnXG5cblxuLy8gaHR0cHM6Ly92aXRlLmRldi9jb25maWcvXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoXG4gIHtjb250ZW50OltcIi4vaW5kZXguaHRtbFwiLCBcIi4vc3JjLyoqLyoue2pzLHRzLGpzeCx0c3h9XCJdLFxuICBwbHVnaW5zOiBbcmVhY3QoKSx0YWlsd2luZGNzcygpLF0sXG4gIFxufSlcbiJdLAogICJtYXBwaW5ncyI6ICI7QUFBNFEsU0FBUyxvQkFBb0I7QUFDelMsT0FBTyxXQUFXO0FBQ2xCLE9BQU8saUJBQWlCO0FBSXhCLElBQU8sc0JBQVE7QUFBQSxFQUNiO0FBQUEsSUFBQyxTQUFRLENBQUMsZ0JBQWdCLDRCQUE0QjtBQUFBLElBQ3RELFNBQVMsQ0FBQyxNQUFNLEdBQUUsWUFBWSxDQUFFO0FBQUEsRUFFbEM7QUFBQzsiLAogICJuYW1lcyI6IFtdCn0K
