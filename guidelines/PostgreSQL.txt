@@ -1,0 +1,80 @@
+🛠 الخطوة 1: تثبيت الأدوات المطلوبة
+قبل البدء، تأكد من تثبيت الأدوات التالية على جهازك:
+
+PostgreSQL → يمكنك تحميله من الرابط الرسمي.
+Redis → يمكنك تحميله من redis.io. https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVd3bUstb0VUNERiOWtTMEVPbTYzR3FmQjQzUXxBQ3Jtc0tsa1BJSndIR0RzNDA0SGpFYUVOTEdsd2FuSFAxajNMVThlNHh6cnY0OHItSktGcVNVQS1VUWI2clR2S01HSllyaXFIS3JKN1NXbVVWT203S3FvQTE2STBtNUNubUdkUDNkcTZPTjJnbk5qZWxNR2phMA&q=https%3A%2F%2Fgithub.com%2Fmicrosoftarchive%2Fredis&v=NJc4hbj1Nd0
+Visual Studio Code → تحميله من code.visualstudio.com.
+ملحقات VS Code الضرورية:
+PostgreSQL (PostgreSQL extension)
+Redis (Redis extension)
+SQLTools (SQLTools extension)
+🛠 الخطوة 2: إعداد قاعدة بيانات PostgreSQL
+1️⃣ تشغيل خادم PostgreSQL
+افتح pgAdmin أو استخدم psql لإنشاء قاعدة البيانات.
+لتشغيل PostgreSQL من التيرمينال:
+sh
+Copy
+Edit
+sudo service postgresql start  # تشغيل السيرفر
+2️⃣ إنشاء قاعدة البيانات
+افتح psql أو استخدم pgAdmin، ثم نفّذ الأمر التالي:
+
+sql
+Copy
+Edit
+CREATE DATABASE product_db;
+بعد ذلك، قم بربط VS Code بقاعدة البيانات:
+
+افتح Visual Studio Code.
+اضغط على CTRL + SHIFT + P وابحث عن SQLTools: New Connection.
+اختر PostgreSQL وأدخل بيانات الاتصال (المضيف localhost، المنفذ 5432، اسم المستخدم postgres، كلمة المرور، واسم قاعدة البيانات product_db).
+🛠 الخطوة 3: تنفيذ ملف SQL داخل VS Code
+أنشئ ملف SQL جديد داخل VS Code (مثل schema.sql).
+انسخ وألصق كود إنشاء الجداول الذي كتبناه سابقًا.
+اضغط CTRL + SHIFT + P ثم اختر SQLTools: Run Query.
+🛠 الخطوة 4: تشغيل Redis
+شغل Redis باستخدام الأمر التالي:
+sh
+Copy
+Edit
+redis-server
+تحقق من أن Redis يعمل:
+sh
+Copy
+Edit
+redis-cli ping
+يجب أن تحصل على استجابة PONG.
+🛠 الخطوة 5: استخدام Redis في المشروع
+داخل VS Code، افتح التيرمينال وأدخل الأوامر التالية لتخزين البيانات في Redis:
+
+sh
+Copy
+Edit
+redis-cli
+ثم جرّب الأوامر:
+
+sh
+Copy
+Edit
+SET popular_products "Product1, Product2, Product3"
+GET popular_products
+🛠 الخطوة 6: تشغيل المشروع
+إذا كنت تستخدم Django، أضف مكتبة django-redis:
+sh
+Copy
+Edit
+pip install django-redis psycopg2
+تأكد من ضبط إعدادات DATABASES في settings.py:
+python
+Copy
+Edit
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'product_db',
+        'USER': 'postgres',
+        'PASSWORD': 'your_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
